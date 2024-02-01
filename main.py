@@ -29,7 +29,8 @@ text_search = st.text_input("Enter your address", value="")
 street = df['Address'].str.lower().str.contains(text_search.lower())
 df_search = df[street]
 print(df_search)
-result = f"Next street cleaning is on {df_search['WeekDay']}"
+result = f"""Next street cleaning is 
+on {df_search['WeekDay'][0]} from {df_search['FromHour'][0]} AM to {df_search['ToHour'][0]} AM."""
 # Show the results
 if text_search:
     st.write(result)
